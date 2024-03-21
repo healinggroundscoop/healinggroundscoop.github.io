@@ -1,39 +1,120 @@
+:root {
+    --warm-wood: #8a6950;
+    --deep-espresso: #32231b;
+    --creamy-white: #eef2ec;
+    --rich-coffee: #674932;
+    --latte-foam: #cec1ab;
+    --caramel-topping: #af8e74;
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+
 body, html {
     margin: 0;
     padding: 0;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Merriweather', serif;
+    background-color: var(--creamy-white);
+    color: var(--deep-espresso);
 }
 
 header {
-    background-color: #555;
-    color: white;
-    padding: 10px 0;
-    position: sticky;
-    top: 0;
-    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 20px;
+    background-color: var(--rich-coffee);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+}
+
+.logo .logo-image {
+    margin-right: 10px;
+    height: 50px; /* Adjust as needed */
+}
+
+.logo .cafe-name {
+    color: var(--creamy-white);
+    font-size: 1.5em; /* Adjust as needed */
 }
 
 nav ul {
-    list-style-type: none;
+    display: flex;
+    list-style: none;
     margin: 0;
     padding: 0;
-    overflow: hidden;
 }
 
 nav ul li {
-    float: left;
+    padding: 0 10px;
 }
 
 nav ul li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
     text-decoration: none;
+    color: var(--creamy-white);
+    padding: 10px 15px; /* Adjust padding as necessary */
+    font-size: 18px; /* Adjust font size as necessary */
+}
+
+header nav ul li a, .cafe-name, footer {
+    font-family: 'Lato', sans-serif;
 }
 
 nav ul li a:hover {
-    background-color: #111;
+    background-color: var(--caramel-topping);
+    border-radius: 5px; /* Adds a rounded effect on hover */
+}
+
+.content-wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding: 20px;
+}
+
+.hero {
+    position: relative;
+    height: 50vh; /* Half the height of the viewport */
+    background-image: url('images/cafe.jpg');
+    background-size: cover;
+    background-position: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-content {
+    position: absolute;
+    right: 10%;
+    text-align: center;
+}
+
+.hero-content button {
+    margin: 10px;
+    padding: 10px 20px;
+    font-size: 1rem;
+    background-color: var(--caramel-topping);
+    border: none;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.hero-content button:hover {
+    background-color: var(--rich-coffee);
+}
+
+.content {
+    padding: 20px;
+    background-color: var(--creamy-white);
+}
+
+#google-maps iframe {
+    margin-bottom: auto;
+    margin-left: auto;
+    border: 6px solid var(--latte-foam); /* Adjust as needed */
 }
 
 main {
@@ -41,11 +122,22 @@ main {
 }
 
 footer {
-    background-color: #555;
-    color: white;
+    background-color: var(--rich-coffee);
+    color: var(--latte-foam);
     text-align: center;
     padding: 10px;
-    position: relative;
+    position: fixed;
+    left: 0;
     bottom: 0;
     width: 100%;
+}
+
+footer a {
+    color: var(--latte-foam); /* Icon color */
+    margin: 0 10px;
+    font-size: 24px; /* Icon size */
+}
+
+footer a:hover {
+    color: var(--caramel-topping); /* Icon hover color */
 }
