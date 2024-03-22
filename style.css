@@ -5,9 +5,16 @@
     --rich-coffee: #674932;
     --latte-foam: #cec1ab;
     --caramel-topping: #af8e74;
+    
+    /* Dark mode */
+    --dark-bg: #121212; /* Dark background */
+    --dark-text: #e0e0e0; /* Light text for dark background */
+    --dark-accent: #333333; /* Darker elements, e.g., footer */
+    --dark-highlight: #bb86fc; /* A highlight color for dark mode */
 }
 
 @import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
 
 body, html {
     margin: 0;
@@ -15,47 +22,75 @@ body, html {
     font-family: 'Merriweather', serif;
     background-color: var(--creamy-white);
     color: var(--deep-espresso);
+    background-image: url('images/logo.png');
+    opacity: 30;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 0 20px;
+    padding: 0 40px;
     background-color: var(--rich-coffee);
+    z-index: 1000; /* Ensures it's above all other content */
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 67px; /* Set a fixed height for the navbar */
 }
 
 .logo {
+    position: relative;
     display: flex;
     align-items: center;
+    justify-content: center;
+    padding-top: 160px; /* Adds space at the top */
+}
+
+.logo::before {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    width: 250px; /* Increase the background size */
+    height: 250px;
+    background-color: var(--latte-foam);
+    border-radius: 50%;
+    top: 71%; /* Adjust the top value to lower the background */
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .logo .logo-image {
-    margin-right: 10px;
-    height: 50px; /* Adjust as needed */
-}
-
-.logo .cafe-name {
-    color: var(--creamy-white);
-    font-size: 1.5em; /* Adjust as needed */
+    width: 220px; /* Increase the logo size */
+    height: auto;
+    position: relative;
+    z-index: 1;
 }
 
 nav ul {
     display: flex;
     list-style: none;
-    margin: 0;
     padding: 0;
+    margin: 0;
+    justify-content: right; /* Aligns nav items to the right */
+    flex-grow: 0; /* Prevents nav from expanding unnecessarily */
+}
+
+nav {
+    margin-right: 70px; /* Adds space on the right side of the entire navigation */
 }
 
 nav ul li {
-    padding: 0 10px;
+    padding: 0 20px;
 }
 
 nav ul li a {
     text-decoration: none;
     color: var(--creamy-white);
-    padding: 10px 15px; /* Adjust padding as necessary */
-    font-size: 18px; /* Adjust font size as necessary */
+    padding: 10px 15px;
+    font-size: 20px;
 }
 
 header nav ul li a, .cafe-name, footer {
@@ -64,7 +99,7 @@ header nav ul li a, .cafe-name, footer {
 
 nav ul li a:hover {
     background-color: var(--caramel-topping);
-    border-radius: 5px; /* Adds a rounded effect on hover */
+    border-radius: 5px;
 }
 
 .content-wrapper {
@@ -76,19 +111,24 @@ nav ul li a:hover {
 
 .hero {
     position: relative;
-    height: 50vh; /* Half the height of the viewport */
+    height: 40vh; /* Half the height of the viewport */
+    width: 100%;
     background-image: url('images/cafe.jpg');
     background-size: cover;
-    background-position: center;
+    background-position: center 50%;
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 1;
 }
 
 .hero-content {
     position: absolute;
-    right: 10%;
+    left: 10%;
     text-align: center;
+    z-index: 2;
+    color: white;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .hero-content button {
@@ -106,15 +146,20 @@ nav ul li a:hover {
     background-color: var(--rich-coffee);
 }
 
-.content {
+.about-cafe {
     padding: 20px;
-    background-color: var(--creamy-white);
+    font-size: 18px;
+    margin: 20px 0; /* Adjust margins as needed */
 }
+
 
 #google-maps iframe {
     margin-bottom: auto;
-    margin-left: auto;
-    border: 6px solid var(--latte-foam); /* Adjust as needed */
+    border: 6px solid var(--latte-foam);
+    position: fixed;
+    bottom: 20;
+    right: 0;
+    z-index: 500; /* Ensure it doesn't overlap the footer */
 }
 
 main {
@@ -139,5 +184,37 @@ footer a {
 }
 
 footer a:hover {
-    color: var(--caramel-topping); /* Icon hover color */
+    color: var(--caramel-topping);
+}
+
+.cafe-name {
+    font-family: 'Pacifico', cursive;
+    color: var(--latte-foam); /* A soft, inviting color from your palette */
+    font-size: 24px; /* A size that stands out but remains balanced with other elements */
+    font-weight: 700; /* Bold font weight for emphasis */
+    text-shadow: 1px 1px 2px var(--deep-espresso); /* Optional: Adds depth and improves readability */
+}
+
+.cafe-hours {
+    padding: 20px;
+    background-color: var(--creamy-white); /* Or adjust as needed */
+    color: var(--deep-espresso); /* Or adjust as needed */
+}
+
+.cafe-hours h2 {
+    text-align: center;
+    color: var(--rich-coffee); /* Or adjust as needed */
+    margin-bottom: 20px;
+}
+
+.hours-info {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.hours-info p {
+    font-size: 18px; /* Adjust as needed */
+    margin: 5px 0; /* Gives a little space between the lines */
+    text-align: center; /* Ensures text is centered */
 }
