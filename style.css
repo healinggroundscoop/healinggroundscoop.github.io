@@ -1,3 +1,6 @@
+@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400&display=swap');
+
 :root {
     --warm-wood: #8a6950;
     --deep-espresso: #32231b;
@@ -13,19 +16,12 @@
     --dark-highlight: #bb86fc; /* A highlight color for dark mode */
 }
 
-@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&family=Merriweather:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-
 body, html {
     margin: 0;
     padding: 0;
     font-family: 'Merriweather', serif;
     background-color: var(--creamy-white);
     color: var(--deep-espresso);
-    background-image: url('images/logo.png');
-    opacity: 30;
-    background-repeat: no-repeat;
-    background-size: cover;
 }
 
 header {
@@ -36,34 +32,35 @@ header {
     background-color: var(--rich-coffee);
     z-index: 1000; /* Ensures it's above all other content */
     width: 100%;
-    position: fixed;
+    position: relative;
     top: 0;
     height: 67px; /* Set a fixed height for the navbar */
 }
 
+/* This is the one that changes the logo AND background */
 .logo {
     position: relative;
     display: flex;
     align-items: center;
     justify-content: center;
-    padding-top: 160px; /* Adds space at the top */
+    padding-top: 160px;
 }
 
 .logo::before {
     content: '';
     position: absolute;
     z-index: -1;
-    width: 250px; /* Increase the background size */
+    width: 250px;
     height: 250px;
     background-color: var(--latte-foam);
     border-radius: 50%;
-    top: 71%; /* Adjust the top value to lower the background */
+    top: 71%; 
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .logo .logo-image {
-    width: 220px; /* Increase the logo size */
+    width: 220px;
     height: auto;
     position: relative;
     z-index: 1;
@@ -74,23 +71,24 @@ nav ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    justify-content: right; /* Aligns nav items to the right */
-    flex-grow: 0; /* Prevents nav from expanding unnecessarily */
+    justify-content: flex-end;
+    flex-grow: 0;
 }
 
 nav {
-    margin-right: 70px; /* Adds space on the right side of the entire navigation */
+    margin-right: 80px; /* Adds space on the right side of the entire navigation */
 }
 
 nav ul li {
-    padding: 0 20px;
+    padding: 0 10px;
 }
 
 nav ul li a {
+    font-family: 'Merienda', serif;
     text-decoration: none;
     color: var(--creamy-white);
     padding: 10px 15px;
-    font-size: 20px;
+    font-size: 22px;
 }
 
 header nav ul li a, .cafe-name, footer {
@@ -111,11 +109,11 @@ nav ul li a:hover {
 
 .hero {
     position: relative;
-    height: 40vh; /* Half the height of the viewport */
+    height: 75vh; /* Hero section height */
     width: 100%;
-    background-image: url('images/cafe.jpg');
+    background-image: url('images/cafe.png');
     background-size: cover;
-    background-position: center 50%;
+    background-position: center;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -124,7 +122,7 @@ nav ul li a:hover {
 
 .hero-content {
     position: absolute;
-    left: 10%;
+    left: 15%;
     text-align: center;
     z-index: 2;
     color: white;
@@ -156,22 +154,19 @@ nav ul li a:hover {
 #google-maps iframe {
     margin-bottom: auto;
     border: 6px solid var(--latte-foam);
-    position: fixed;
-    bottom: 20;
+    position: relative;
+    bottom: -20px;
     right: 0;
     z-index: 500; /* Ensure it doesn't overlap the footer */
 }
 
-main {
-    padding: 20px;
-}
 
 footer {
     background-color: var(--rich-coffee);
     color: var(--latte-foam);
     text-align: center;
     padding: 10px;
-    position: fixed;
+    position: relative;
     left: 0;
     bottom: 0;
     width: 100%;
