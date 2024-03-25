@@ -34,7 +34,7 @@ header {
     width: 100%;
     position: relative;
     top: 0;
-    height: 67px; /* Set a fixed height for the navbar */
+    height: 70px; /* Set a fixed height for the navbar */
 }
 
 /* This is the one that changes the logo AND background */
@@ -104,12 +104,11 @@ nav ul li a:hover {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    padding: 20px;
 }
 
 .hero {
     position: relative;
-    height: 75vh; /* Hero section height */
+    height: 60vh; /* Hero section height */
     width: 100%;
     background-image: url('images/cafe.png');
     background-size: cover;
@@ -135,9 +134,9 @@ nav ul li a:hover {
     font-size: 1rem;
     background-color: var(--caramel-topping);
     border: none;
-    color: white;
+    color: var(--creamy-white);
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.4s ease;
 }
 
 .hero-content button:hover {
@@ -146,20 +145,9 @@ nav ul li a:hover {
 
 .about-cafe {
     padding: 20px;
-    font-size: 18px;
+    font-size: 22px;
     margin: 20px 0; /* Adjust margins as needed */
 }
-
-
-#google-maps iframe {
-    margin-bottom: auto;
-    border: 6px solid var(--latte-foam);
-    position: relative;
-    bottom: -20px;
-    right: 0;
-    z-index: 500; /* Ensure it doesn't overlap the footer */
-}
-
 
 footer {
     background-color: var(--rich-coffee);
@@ -190,10 +178,24 @@ footer a:hover {
     text-shadow: 1px 1px 2px var(--deep-espresso); /* Optional: Adds depth and improves readability */
 }
 
+.info-container {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px; /* Adds padding around the container */
+    align-items: flex-start; /* Aligns items to the start of the flex container */
+}
+
+#google-maps iframe {
+    border: 6px solid var(--latte-foam);
+    flex: 1; /* Allows the iframe to grow */
+    max-width: 600px; /* Adjust based on your preference */
+    height: 450px; /* Adjust based on your preference */
+}
+
 .cafe-hours {
-    padding: 20px;
-    background-color: var(--creamy-white); /* Or adjust as needed */
-    color: var(--deep-espresso); /* Or adjust as needed */
+    flex: 1; /* Allows the 'Our Hours' block to grow */
+    padding: 20px; /* Adds internal padding */
+    /* No changes needed for .hours-info */
 }
 
 .cafe-hours h2 {
