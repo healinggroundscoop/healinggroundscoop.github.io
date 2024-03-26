@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
+
+* {
+    box-sizing: border-box;
+}
 
 :root {
     --warm-wood: #8a6950;
@@ -22,6 +26,18 @@ body, html {
     font-family: 'Merriweather', serif;
     background-color: var(--creamy-white);
     color: var(--deep-espresso);
+}
+
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: var(--creamy-white);        /* color of the tracking area */
+  }
+  
+body::-webkit-scrollbar-thumb {
+    background: var(--latte-foam);        /* color of the tracking area */
 }
 
 header {
@@ -76,7 +92,7 @@ nav ul {
 }
 
 nav {
-    margin-right: 80px; /* Adds space on the right side of the entire navigation */
+    position: relative;
 }
 
 nav ul li {
@@ -86,7 +102,7 @@ nav ul li {
 nav ul li a {
     font-family: 'Merienda', cursive;
     text-decoration: none;
-    color: var(--creamy-white);
+    color: var(--latte-foam);
     padding: 10px 15px;
     font-size: 22px;
 }
