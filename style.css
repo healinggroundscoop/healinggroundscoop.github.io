@@ -50,17 +50,17 @@ header {
     content: '';
     position: absolute;
     z-index: -1;
-    width: 250px;
-    height: 250px;
+    width: 270px;
+    height: 270px;
     background-color: var(--latte-foam);
     border-radius: 50%;
-    top: 71%; 
+    top: 70%; 
     left: 50%;
     transform: translate(-50%, -50%);
 }
 
 .logo .logo-image {
-    width: 220px;
+    width: 240px;
     height: auto;
     position: relative;
     z-index: 1;
@@ -84,7 +84,7 @@ nav ul li {
 }
 
 nav ul li a {
-    font-family: 'Merienda', serif;
+    font-family: 'Merienda', cursive;
     text-decoration: none;
     color: var(--creamy-white);
     padding: 10px 15px;
@@ -108,7 +108,7 @@ nav ul li a:hover {
 
 .hero {
     position: relative;
-    height: 60vh; /* Hero section height */
+    height: 65vh; /* Hero section height */
     width: 100%;
     background-image: url('images/cafe.png');
     background-size: cover;
@@ -121,7 +121,7 @@ nav ul li a:hover {
 
 .hero-content {
     position: absolute;
-    left: 15%;
+    left: 20%;
     text-align: center;
     z-index: 2;
     color: white;
@@ -182,20 +182,33 @@ footer a:hover {
     display: flex;
     justify-content: space-between;
     padding: 20px; /* Adds padding around the container */
-    align-items: flex-start; /* Aligns items to the start of the flex container */
+    gap: 20px;
 }
 
-#google-maps iframe {
-    border: 6px solid var(--latte-foam);
-    flex: 1; /* Allows the iframe to grow */
-    max-width: 600px; /* Adjust based on your preference */
-    height: 450px; /* Adjust based on your preference */
+#google-maps, .cafe-hours, .instagram-embed {
+    flex: 1; /* Each child takes equal width */
+    padding: 10px; /* Adds padding within each section */
+    box-sizing: border-box; /* Includes padding in the element's total width and height */
+}
+
+#google-maps iframe, .instagram-embed {
+    width: 100%; /* Makes the embeds take the full width of their parent */
+    height: 500px; /* Example fixed height; adjust as necessary */
+    border: none; /* Removes any default border */
+}
+
+.instagram-embed {
+    overflow: hidden; /* Prevents content from extending beyond the set height */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers the embed vertically if there's extra space */
 }
 
 .cafe-hours {
-    flex: 1; /* Allows the 'Our Hours' block to grow */
-    padding: 20px; /* Adds internal padding */
-    /* No changes needed for .hours-info */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; /* Centers the content of the hours vertically and horizontally */
 }
 
 .cafe-hours h2 {
@@ -214,4 +227,67 @@ footer a:hover {
     font-size: 18px; /* Adjust as needed */
     margin: 5px 0; /* Gives a little space between the lines */
     text-align: center; /* Ensures text is centered */
+}
+
+
+.about-section {
+    max-width: 1200px;
+    margin: 0 auto; /* Centers the section */
+    padding: 50px 20px; /* Adds padding around the content */
+    background-color: var(--creamy-white);
+    color: var(--deep-espresso);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Aligns items in the center */
+    text-align: center; /* Centers the text */
+}
+
+.about-section h2 {
+    font-family: 'Merienda', cursive; /* A font that fits the cafe's aesthetic */
+    color: var(--rich-coffee);
+    margin-bottom: 30px; /* Adds space below the heading */
+}
+
+.about-section p {
+    font-family: 'Merriweather', serif;
+    line-height: 1.6; /* Improves readability */
+    margin-bottom: 30px; /* Adds space below the paragraph */
+}
+
+
+
+.carousel-container {
+    position: relative;
+    max-width: 600px; /* Adjust based on your needs */
+    margin: auto;
+}
+
+.carousel-slide {
+    display: flex;
+    overflow: hidden;
+}
+
+.carousel-slide img {
+    max-width: 100%;
+    display: none; /* Hide images initially */
+}
+
+.carousel-dots {
+    text-align: center;
+    padding: 20px;
+}
+
+.dot {
+    cursor: pointer;
+    height: 15px;
+    width: 15px;
+    margin: 0 2px;
+    background-color: #bbb;
+    border-radius: 50%;
+    display: inline-block;
+    transition: background-color 0.6s ease;
+}
+
+.dot.active, .dot:hover {
+    background-color: #717171;
 }
