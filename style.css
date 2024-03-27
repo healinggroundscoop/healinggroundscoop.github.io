@@ -148,11 +148,16 @@ nav ul li a:hover {
 
 .hero-content {
     position: absolute;
-    left: 20%;
-    text-align: center;
-    z-index: 2;
-    color: white;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%); /* Centers content */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for readability */
+    color: #fff; /* Ensures text color is white for contrast */
+    padding: 20px;
+    border-radius: 8px; /* Adds rounded corners */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
+    max-width: 80%;
+    text-align: center; /* Center-aligns the text */
 }
 
 .hero-content button {
@@ -352,4 +357,113 @@ footer a:hover {
 
 #menu a:hover {
     background-color: var(--rich-coffee);
+}
+
+/* This is for the mobile navbar */
+.nav-toggle {
+    display: none; /* Initially hidden on desktop */
+    background: none; /* Removes any default button background */
+    border: none; /* Removes any default border */
+    cursor: pointer; /* Changes cursor to pointer to indicate clickability */
+    padding: 10px; /* Adds some padding for touch friendliness */
+    z-index: 2000; /* Ensures it's above other content */
+    position: absolute; /* Positions it relative to its nearest positioned ancestor */
+    top: 10px; /* Adjust as necessary */
+    right: 20px; /* Adjust as necessary */
+}
+
+.nav-toggle i {
+    color: var(--latte-foam); /* Adjust based on your color scheme */
+    font-size: 24px; /* Adjust based on your preference */
+}
+
+/* Optional: Add a hover effect */
+.nav-toggle:hover i {
+    color: var(--caramel-topping); /* A slightly different color on hover */
+}
+
+.hamburger {
+    display: block;
+    width: 30px;
+    height: 4px;
+    background: var(--latte-foam);
+    position: relative;
+}
+
+.hamburger::before, .hamburger::after {
+    content: '';
+    background: var(--latte-foam);
+    width: 25px;
+    height: 2px;
+    display: block;
+    position: absolute;
+    transition: all 0.3s;
+}
+
+.hamburger::before { top: -8px; }
+.hamburger::after { bottom: -8px; }
+
+@media (max-width: 768px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        position: relative; /* This ensures that the header's position is relative to its normal flow */
+    }
+
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        right: 20px;
+        top: 20px; /* Positions the toggle button correctly */
+    }
+
+    nav ul {
+        flex-direction: column;
+        display: none; /* Initially hides the navigation menu */
+    }
+
+    nav ul.show {
+        display: flex; /* Shows the navigation menu when the toggle button is clicked */
+    }
+
+    nav ul li {
+        text-align: center; /* Centers the text of navigation links */
+        padding: 10px 0; /* Adds top and bottom padding for each link */
+    }
+
+    nav ul li a {
+        font-size: 18px; /* Adjusts the font size for better readability on mobile devices */
+    }
+
+    .logo {
+        margin-bottom: 20px; /* Adds space below the logo for the hero content */
+        padding-top: 0; /* Removes any top padding that might push content down */
+    }
+
+    .logo .logo-image {
+        width: 140px; /* Smaller width for the logo image */
+        height: auto; /* Keeps the aspect ratio of the image */
+    }
+
+    .logo::before {
+        width: 160px; /* Smaller width for the background */
+        height: 160px; /* Smaller height for the background */
+        top: 50%; /* Centers vertically */
+        left: 50%; /* Centers horizontally */
+        transform: translate(-50%, -50%); /* Adjusts positioning to remain centered */
+    }
+
+    .logo .logo-image {
+        margin: 0 auto; /* Centers the logo image */
+        display: block; /* Ensures the logo image is block-level for proper centering */
+    }
+
+    .hero-content {
+        position: static; /* Resets the position to flow naturally in the document */
+        transform: none; /* Clears any transformations */
+        width: 90%; /* Adjusts the width to fit within mobile viewports */
+        padding: 15px; /* Provides internal padding */
+        box-sizing: border-box; /* Ensures padding is included within the element's width */
+    }
 }

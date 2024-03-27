@@ -20,3 +20,9 @@ function showSlides(n) {
     slides[slideIndex-1].style.display = "block";  
     dots[slideIndex-1].className += " active";
 }
+
+// For the mobile navbar
+document.querySelector('.nav-toggle').addEventListener('click', () => {
+    const navUL = document.querySelector('nav ul');
+    navUL.classList.toggle('show'); // Toggle class to show/hide the menu
+});
