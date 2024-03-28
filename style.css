@@ -151,10 +151,9 @@ nav ul li a:hover {
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%); /* Centers content */
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black for readability */
+    background-color: rgba(50, 35, 27, 0.6); /* Semi-transparent black for readability */
     color: #fff; /* Ensures text color is white for contrast */
     padding: 20px;
-    border-radius: 8px; /* Adds rounded corners */
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
     max-width: 80%;
     text-align: center; /* Center-aligns the text */
@@ -215,6 +214,16 @@ footer a:hover {
     justify-content: space-between;
     padding: 20px; /* Adds padding around the container */
     gap: 20px;
+}
+
+.google-calendar-embed {
+    width: 100%; /* Makes the calendar responsive */
+    max-width: 1000px; /* Maximum width of the calendar */
+    height: 900px; /* Fixed height, but you can adjust as needed */
+    border: 3px solid var(--caramel-topping); /* Example border style */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow for depth */
+    margin: 20px auto; /* Centers the calendar in its parent container */
+    display: block; /* Ensures the iframe is block-level for margin to work */
 }
 
 #google-maps, .cafe-hours, .instagram-embed {
@@ -519,5 +528,10 @@ footer a:hover {
 
     #google-maps {
         order: 3;
+    }
+
+    .google-calendar-embed {
+        max-width: 100%; /* Allows the calendar to fill the container */
+        height: 400px; /* Adjusts the height for smaller screens */
     }
 }
