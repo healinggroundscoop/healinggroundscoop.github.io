@@ -210,13 +210,6 @@ footer a:hover {
     text-shadow: 1px 1px 2px var(--deep-espresso); /* Optional: Adds depth and improves readability */
 }
 
-.info-container {
-    display: flex;
-    justify-content: space-between;
-    padding: 20px; /* Adds padding around the container */
-    gap: 20px;
-}
-
 .google-calendar-embed {
     width: 100%; /* Makes the calendar responsive */
     max-width: 1000px; /* Maximum width of the calendar */
@@ -227,25 +220,36 @@ footer a:hover {
     display: block; /* Ensures the iframe is block-level for margin to work */
 }
 
-#google-maps, .cafe-hours, .instagram-embed {
-    flex: 1; /* Each child takes equal width */
-    padding: 10px; /* Adds padding within each section */
-    box-sizing: border-box; /* Includes padding in the element's total width and height */
+.info-container {
+    display: flex;
+    flex-direction: column; /* Stack vertically by default */
+    align-items: center; /* Center items for better alignment */
+    justify-content: center; /* Center items vertically */
+    padding: 20px;
+    gap: 20px;
 }
 
-#google-maps iframe {
-    width: 100%;
-    height: 300px; /* Adjust height as necessary */
-    border: none;
+#google-maps, .cafe-hours, .instagram-embed {
+    width: 100%; /* Each child takes full width of the container */
+    padding: 10px; /* Adds padding within each section */
+}
+
+#google-maps iframe, .instagram-embed iframe {
+    width: 100%; /* Ensures iframe takes full width of its container */
+    border: none; /* Removes border around iframe */
 }
 
 .instagram-embed {
-    flex: 1;
-    padding-left: 20px;
-    overflow: hidden; /* Prevents content from extending beyond the set height */
+    text-align: center; /* Centers the content */
     display: flex;
-    flex-direction: column;
-    justify-content: center; /* Centers the embed vertically if there's extra space */
+    justify-content: center; /* Centers children horizontally */
+    align-items: center; /* Centers children vertically */
+    width: 100%; /* Takes full width to maintain consistency */
+    padding: 10px; /* Padding for aesthetics */
+}
+
+#google-maps iframe {
+    height: 450px; /* Increase height from 300px to 450px */
 }
 
 .cafe-hours {
@@ -568,11 +572,6 @@ button:hover {
         gap: 20px;
     }
 
-    /* Adjust iframe and embed sizes for mobile */
-    #google-maps iframe, .instagram-embed {
-        height: 300px; /* Adjust height for mobile */
-    }
-
     /* Specific order for mobile view */
     .cafe-hours {
         order: 1;
@@ -591,6 +590,14 @@ button:hover {
         height: 400px; /* Adjusts the height for smaller screens */
     }
 
+    #google-maps iframe {
+        height: 300px; /* Smaller height for smaller screens */
+    }
+
+    .instagram-embed, #google-maps {
+        padding: 5px; /* Smaller padding for smaller screens */
+    }
+    
     .contact-content {
         flex-direction: column;
     }
