@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Pacifico&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amarante&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Merienda:wght@300..900&display=swap');
 
 * {
@@ -112,14 +113,14 @@ nav ul li {
 }
 
 nav ul li a {
-    font-family: 'Merienda', cursive;
+    font-family: "Amarante", serif;
     text-decoration: none;
     color: var(--latte-foam);
     padding: 10px 15px;
     font-size: 22px;
 }
 
-header nav ul li a, .cafe-name, footer {
+.cafe-name, footer {
     font-family: 'Lato', sans-serif;
 }
 
@@ -481,92 +482,150 @@ button:hover {
         flex-direction: column;
         align-items: center;
         text-align: center;
+        position: relative; /* This ensures that the header's position is relative to its normal flow */
     }
 
+    /* Positioned off-screen by default */
+    .nav-toggle {
+        display: block;
+        position: absolute;
+        left: 20px; /* Moved from right to left */
+        top: 20px;
+        z-index: 1600; /* Ensure toggle is above the nav */
+        font-size: 24px; /* Ensure icon size is adequate */
+        cursor: pointer; /* Indicates it's clickable */
+    }
+    
+    .nav-toggle .fas {
+        transition: transform 0.3s ease; /* Smooth transform transition */
+    }
+    
+    .nav-toggle.open .fas {
+        transform: rotate(45deg); /* Rotate to create 'X' shape */
+    }
+    
     nav {
         position: fixed;
         top: 0;
-        left: -100%; /* Hidden initially */
-        width: 60%; /* Adjusted as needed */
+        left: -100%; /* Start off-screen */
+        width: 60%; /* Adjust width based on design preference */
         height: 100%;
         background-color: var(--rich-coffee);
         flex-direction: column;
-        transition: left 0.3s;
+        justify-content: flex-start;
+        transition: left 0.3s ease;
         z-index: 1500;
+        display: block;
     }
-
+    
     nav.show {
-        left: 0; /* Show nav on toggle */
+        left: 0; /* Slide in from the left */
     }
+    
 
     .nav-toggle {
         display: block;
         position: absolute;
         right: 20px;
         top: 20px;
-        z-index: 1600;
+        z-index: 1600; /* Ensure toggle is above the nav */
     }
 
     nav ul {
-        width: 100%; /* Full width of nav */
+        width: 100%; /* Ensures the <ul> takes the full width of the <nav> */
         flex-direction: column;
     }
 
     nav ul.show {
-        display: flex; /* Only change display on toggle */
+        display: flex; /* Ensures the menu is displayed when .show is added */
     }
 
+    /* Ensure list items fill the nav and are easily clickable */
     nav ul li {
-        width: 100%; /* Full width to enhance touch area */
+        width: 100%; /* Makes each list item fill the nav */
+        text-align: center; /* Center-align the text */
     }
 
     nav ul li a {
-        display: block; /* Better touch response */
-        padding: 15px; /* Larger touch area */
-        font-size: 18px; /* Readability */
+        display: block; /* Makes the link fill its list item for easier clicking */
+        width: 100%; /* Ensures the links are as wide as their list items */
+        padding: 15px; /* Increases padding for touch friendliness */
+        font-size: 18px; /* Keeps font size readable */
+        color: var(--latte-foam); /* Adjust as needed */
     }
 
     .logo {
-        margin-bottom: 20px;
-        display: block; /* Ensures block-level display for centering */
+        margin-bottom: 20px; /* Adds space below the logo for the hero content */
+        padding-top: 0; /* Removes any top padding that might push content down */
+        margin: 0 auto; /* Center logo */
+        display: block;
     }
 
-    .logo::before, .logo .logo-image {
-        width: 160px; /* Unified size for simplicity */
-        height: 160px;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%); /* Center both vertically and horizontally */
+    .logo .logo-image {
+        width: 140px; /* Smaller width for the logo image */
+        height: auto; /* Keeps the aspect ratio of the image */
+    }
+
+    .logo::before {
+        width: 160px; /* Smaller width for the background */
+        height: 160px; /* Smaller height for the background */
+        top: 50%; /* Centers vertically */
+        left: 50%; /* Centers horizontally */
+        transform: translate(-50%, -50%); /* Adjusts positioning to remain centered */
+    }
+
+    .logo .logo-image {
+        margin: 0 auto; /* Centers the logo image */
+        display: block; /* Ensures the logo image is block-level for proper centering */
     }
 
     .hero-content {
-        position: static; /* Natural flow within document */
-        width: 90%; /* Utilize majority of viewport width */
-        padding: 15px; /* Adequate padding */
-        box-sizing: border-box; /* Includes padding in width */
+        position: static; /* Resets the position to flow naturally in the document */
+        transform: none; /* Clears any transformations */
+        width: 90%; /* Adjusts the width to fit within mobile viewports */
+        padding: 15px; /* Provides internal padding */
+        box-sizing: border-box; /* Ensures padding is included within the element's width */
     }
 
     .info-container {
-        flex-direction: column;
-        align-items: center; /* Align items centrally */
+        display: flex;
+        flex-direction: column; /* Stacks items vertically */
+        align-items: center; /* Align items in the center */
         padding: 20px;
-        gap: 20px; /* Consistent spacing */
+        gap: 20px;
     }
 
-    #google-maps, .instagram-embed, .cafe-hours {
-        width: 100%; /* Full width for all sections */
-        padding: 5px; /* Reduced padding for compactness */
+    /* Specific order for mobile view */
+    .cafe-hours {
+        order: 1;
     }
 
-    #google-maps iframe, .instagram-embed iframe {
-        height: 300px; /* Uniform height for all iframes */
+    .instagram-embed {
+        order: 2;
+    }
+
+    #google-maps {
+        order: 3;
+    }
+
+    .google-calendar-embed {
+        max-width: 100%; /* Allows the calendar to fill the container */
+        height: 400px; /* Adjusts the height for smaller screens */
+    }
+
+    #google-maps iframe {
+        height: 300px; /* Smaller height for smaller screens */
+    }
+
+    .instagram-embed, #google-maps {
+        padding: 5px; /* Smaller padding for smaller screens */
     }
 
     .contact-content {
-        flex-direction: column; /* Stack vertically */
+        flex-direction: column;
     }
 
     .contact-form, .contact-info {
-        flex-basis: 100%; /* Each takes full width */
+        flex-basis: 100%;
     }
 }

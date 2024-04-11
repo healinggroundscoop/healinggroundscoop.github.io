@@ -9,8 +9,8 @@ function showSlides(n) {
     let i;
     let slides = document.getElementsByClassName("carousel-slide")[0].getElementsByTagName("img");
     let dots = document.getElementsByClassName("dot");
-    if (n > slides.length) {slideIndex = 1}
-    if (n < 1) {slideIndex = slides.length}
+    if (n > slides.length) { slideIndex = 1; }
+    if (n < 1) { slideIndex = slides.length; }
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  
     }
@@ -21,7 +21,13 @@ function showSlides(n) {
     dots[slideIndex-1].className += " active";
 }
 
-// For the mobile navbar
-document.querySelector('.nav-toggle').addEventListener('click', function() {
-    document.querySelector('nav').classList.toggle('show');
+// Improved navbar toggle functionality
+document.addEventListener("DOMContentLoaded", function() {
+    const toggleButton = document.querySelector('.nav-toggle');
+    const nav = document.querySelector('nav');
+
+    toggleButton.addEventListener('click', function() {
+        nav.classList.toggle('show'); // Toggle nav visibility
+        toggleButton.classList.toggle('open'); // Toggle button class to change icon
+    });
 });
