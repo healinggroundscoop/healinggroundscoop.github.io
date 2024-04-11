@@ -333,6 +333,57 @@ footer a:hover {
     background-color: #717171;
 }
 
+.contact-us {
+    text-align: center;
+    margin: 20px auto;
+    max-width: 800px;
+}
+
+.contact-content {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.contact-form, .contact-info {
+    flex-basis: 48%; /* Adjust based on preference */
+}
+
+.contact-form p, .contact-info p {
+    margin: 10px 0;
+}
+
+input[type="text"],
+input[type="email"],
+textarea {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    box-sizing: border-box; /* Includes padding and border in the element's width and height */
+}
+
+button {
+    background-color: var(--caramel-topping); /* Adjust color as needed */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: var(--rich-coffee); /* Darker shade for hover effect */
+}
+
+.contact-info p {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.contact-info i {
+    margin-right: 10px;
+}
 
 
 #menu {
@@ -533,5 +584,13 @@ footer a:hover {
     .google-calendar-embed {
         max-width: 100%; /* Allows the calendar to fill the container */
         height: 400px; /* Adjusts the height for smaller screens */
+    }
+
+    .contact-content {
+        flex-direction: column;
+    }
+
+    .contact-form, .contact-info {
+        flex-basis: 100%;
     }
 }
