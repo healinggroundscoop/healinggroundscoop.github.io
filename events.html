@@ -21,22 +21,29 @@
     <link rel="manifest" href="favicons/site.webmanifest">
 </head>
 <body>
-    <div class="page-container">
     <header>
         <div class="logo">
-            <img src="images/logo.png" alt="Logo" class="logo-image">
+            <a href="index.html">
+                <img src="images/logo.png" alt="Logo" class="logo-image">
+            </a>
         </div>
-        
+    
+        <button class="nav-toggle" aria-label="toggle navigation">
+            <span class="hamburger"></span>
+        </button>
+    
         <nav>
+            <img src="images/logo.png" alt="Small Logo" class="navbar-logo"> <!-- Small logo for mobile navbar -->
             <ul>
-                <li><a href="index.html#about">About</a></li>
+                <li><a href="#about">About</a></li>
                 <li><a href="events.html">Events</a></li>
                 <li><a href="menu.html">Menu</a></li>
                 <li><a href="faq.html">FAQ</a></li>
             </ul>
         </nav>
-    </header>    
+    </header>
 
+    <div class="page-container">
     <main class="content-wrap">
         <iframe src="https://calendar.google.com/calendar/embed?src=thehealinggrounds22%40gmail.com&ctz=America%2FNew_York" class="google-calendar-embed" style="border: 0" frameborder="0" scrolling="no"></iframe>
     </main>
@@ -54,8 +61,8 @@
             <i class="fab fa-instagram"></i>
         </a>
     </footer>    
-
-    <script src="script.js"></script>
     </div>
+
+    <script src="script.js" defer></script>
 </body>
 </html>

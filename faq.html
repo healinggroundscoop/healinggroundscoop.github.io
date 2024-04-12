@@ -23,26 +23,64 @@
 <body>
     <div class="page-container">
 
-    <header>
-        <div class="logo">
-            <img src="images/logo.png" alt="Logo" class="logo-image">
-        </div>
+        <header>
+            <div class="logo">
+                <a href="index.html">
+                    <img src="images/logo.png" alt="Logo" class="logo-image">
+                </a>
+            </div>
         
-        <nav>
-            <ul>
-                <li><a href="index.html#about">About</a></li>
-                <li><a href="events.html">Events</a></li>
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="faq.html">FAQ</a></li>
-            </ul>
-        </nav>
-    </header>    
+            <button class="nav-toggle" aria-label="toggle navigation">
+                <span class="hamburger"></span>
+            </button>
+        
+            <nav>
+                <img src="images/logo.png" alt="Small Logo" class="navbar-logo"> <!-- Small logo for mobile navbar -->
+                <ul>
+                    <li><a href="index.html#about">About</a></li>
+                    <li><a href="events.html">Events</a></li>
+                    <li><a href="menu.html">Menu</a></li>
+                    <li><a href="faq.html">FAQ</a></li>
+                </ul>
+            </nav>
+        </header> 
     
     <main class="content-wrap">
-        <section id="menu">
+        <section id="faq">
             <h1>Frequently Asked Questions</h1>
-
-        </section>
+            <div class="faq-container">
+                <div class="faq-item">
+                    <button class="faq-question">Where are your products sourced from?</button>
+                    <div class="faq-answer">
+                        <p>We pride ourselves on using locally or ethically sourced goods. Our cacao is grown in family owned fruit forests in Guatemala by Mayan Woman's Collectives. For coffee we use Equal Exchange. We also use bread from the Bread Hive, and local produce from forgotName. We also use Palestenian Olive Oil from...</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is Cacao?</button>
+                    <div class="faq-answer">
+                        <p>Your answer here...</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is Ayurveda?</button>
+                    <div class="faq-answer">
+                        <p>Your answer here...</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">What is tempeh?</button>
+                    <div class="faq-answer">
+                        <p>Your answer here...</p>
+                    </div>
+                </div>
+                <div class="faq-item">
+                    <button class="faq-question">Do you offer catering services?</button>
+                    <div class="faq-answer">
+                        <p>Your answer here...</p>
+                    </div>
+                </div>
+            </div>
+        </section>        
     </main>
     
     <footer>
@@ -58,8 +96,8 @@
             <i class="fab fa-instagram"></i>
         </a>
     </footer>    
+    </div>
 
     <script src="script.js"></script>
-    </div>
 </body>
 </html>
