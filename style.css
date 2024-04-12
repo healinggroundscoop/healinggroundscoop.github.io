@@ -326,7 +326,7 @@ footer a:hover {
 /* FAQ Section Styling */
 #faq {
     max-width: 800px;
-    margin: 50px auto;
+    margin: 110px auto;
     padding: 20px;
     background: var(--latte-foam);
     border-radius: 8px;
