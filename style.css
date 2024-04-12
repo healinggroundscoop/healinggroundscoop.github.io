@@ -326,7 +326,7 @@ footer a:hover {
 /* FAQ Section Styling */
 #faq {
     max-width: 800px;
-    margin: 20px auto;
+    margin: 50px auto;
     padding: 20px;
     background: var(--latte-foam);
     border-radius: 8px;
@@ -594,6 +594,46 @@ button:hover {
     margin: 10px auto; /* Center horizontally and add some margin */
 }
 
+
+.punch-card-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 20px;
+    background-color: var(--creamy-white);
+    color: var(--deep-espresso);
+}
+
+.container {
+    display: flex;
+    flex-direction: row; /* Adjust based on your layout preference */
+    align-items: center;
+    justify-content: center; /* Centers content horizontally */
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center; /* Centers text inside the container */
+}
+
+.punch-card-content {
+    flex: 1;
+    padding-right: 20px; /* Adjust spacing based on design */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centers content vertically */
+    align-items: center; /* Centers text horizontally */
+}
+
+.punch-card-image {
+    flex: 1;
+    text-align: center; /* Centers the image */
+}
+
+.punch-card-image img {
+    max-width: 100%; /* Ensures the image is responsive */
+    height: auto;
+}
+
+
 @media (max-width: 768px) {
     header {
         flex-direction: column;
@@ -761,5 +801,15 @@ button:hover {
 
     .contact-form, .contact-info {
         flex-basis: 100%;
+    }
+
+    .container {
+        flex-direction: column;
+        text-align: center; /* Ensures text is centered in mobile view */
+    }
+
+    .punch-card-content, .punch-card-image {
+        padding: 10px;
+        text-align: center; /* Center text within each block on smaller screens */
     }
 }
