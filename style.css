@@ -435,20 +435,23 @@ button:hover {
 
 /* This is for the mobile navbar */
 .nav-toggle {
-    display: block; /* Always displayed */
-    position: fixed; /* Fixed position to keep it in view */
+    display: block;
+    position: fixed; /* Ensures it's visible across the screen */
     top: 10px;
-    left: 10px; /* Ensure it's at the top left */
-    z-index: 2100; /* Increase z-index to ensure it's on top */
-    background-color: red; /* High visibility color */
-    padding: 10px;
-    border: none;
-    cursor: pointer;
+    left: 10px; /* Position it on the top left */
+    z-index: 2000; /* Keeps it above other content */
+    background-color: transparent; /* Makes the background blend in or stand out as needed */
+    padding: 5px; /* Reduce padding to decrease overall size */
+    width: 40px; /* Set a fixed width */
+    height: 40px; /* Set a fixed height */
+    justify-content: center; /* Center the icon inside the button */
+    align-items: center; /* Center the icon vertically */
+    border: none; /* Optional: removes the border */
 }
 
 /* Ensure the icon inside is visible */
 .nav-toggle i {
-    color: white; /* Contrast color for visibility */
+    color: var(--latte-foam); /* Contrast color for visibility */
     font-size: 24px;
 }
 
@@ -459,16 +462,16 @@ button:hover {
 
 .hamburger {
     display: block;
-    width: 40px;
+    width: 30px;
     height: 4px;
     background: var(--latte-foam);
     position: relative;
 }
 
-.hamburger::before, .hamburger::after {
+.hamburger, .hamburger::before, .hamburger::after {
     content: '';
     background: var(--latte-foam);
-    width: 25px;
+    width: 30px;
     height: 2px;
     display: block;
     position: absolute;
@@ -492,7 +495,7 @@ button:hover {
         top: 10px;
         left: 10px; /* Move it to the left to test */
         z-index: 2000; /* High z-index */
-        background-color: red; /* Make it stand out */
+        background-color: var(--rich-coffee); /* Make it stand out */
     }
     
     .nav-toggle .fas {
@@ -506,7 +509,7 @@ button:hover {
     .nav-toggle {
         display: block;
         position: absolute;
-        left: 20px;
+        left: 1px;
         top: 20px;
         z-index: 1600; /* Keep as is or adjust based on other z-indexes */
     }
@@ -534,7 +537,7 @@ button:hover {
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 20px 0; /* Add some padding at the top */
+        padding: 55px 0; /* Add some padding at the top */
     }
 
     nav ul li {
