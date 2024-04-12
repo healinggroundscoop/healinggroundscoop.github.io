@@ -467,6 +467,12 @@ button:hover {
     height: 3px; /* Standard height for visibility */
     background: var(--latte-foam);
     position: relative;
+    transition: background 0.3s ease;
+}
+
+/* Middle bar disappears when 'open' class is added */
+.nav-toggle.open .hamburger {
+    background: transparent; /* Make the middle bar disappear */
 }
 
 .hamburger::before, .hamburger::after {
@@ -477,6 +483,15 @@ button:hover {
     height: 3px;
     background: var(--latte-foam);
     transition: transform 0.3s ease;
+}
+
+/* Transform top and bottom bars into 'X' shape when 'open' */
+.nav-toggle.open .hamburger::before {
+    transform: translateY(10px) rotate(45deg); /* Moves into 'X' shape */
+}
+
+.nav-toggle.open .hamburger::after {
+    transform: translateY(-10px) rotate(-45deg); /* Moves into 'X' shape */
 }
 
 .hamburger::before {
