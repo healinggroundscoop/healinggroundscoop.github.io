@@ -22,12 +22,19 @@ function showSlides(n) {
 }
 
 // Improved navbar toggle functionality
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener("DOMContentLoaded", function() {
     const toggleButton = document.querySelector('.nav-toggle');
     const nav = document.querySelector('nav');
 
-    toggleButton.addEventListener('click', () => {
+    toggleButton.addEventListener('click', function() {
         nav.classList.toggle('show');
-        toggleButton.classList.toggle('open'); // Change icon state
+        toggleButton.classList.toggle('open'); // Toggle for 'X' icon transformation
+
+        // Toggle position class based on whether the nav is shown
+        if (nav.classList.contains('show')) {
+            toggleButton.style.position = 'fixed'; // Make it fixed when nav is open
+        } else {
+            toggleButton.style.position = 'absolute'; // Make it absolute when nav is closed
+        }
     });
 });

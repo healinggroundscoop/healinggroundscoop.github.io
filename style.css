@@ -436,23 +436,24 @@ button:hover {
 /* This is for the mobile navbar */
 .nav-toggle {
     display: block;
-    position: fixed; /* Ensures it's visible across the screen */
-    top: 10px;
-    left: 10px; /* Position it on the top left */
-    z-index: 2000; /* Keeps it above other content */
-    background-color: transparent; /* Makes the background blend in or stand out as needed */
-    padding: 5px; /* Reduce padding to decrease overall size */
-    width: 40px; /* Set a fixed width */
-    height: 40px; /* Set a fixed height */
-    justify-content: center; /* Center the icon inside the button */
+    top: 15px;
+    left: 20px;
+    z-index: 2000;
+    background-color: transparent; /* Make the button blend with any background */
+    cursor: pointer;
+    border: none;
+    outline: none;
+    padding: 10px;
+    width: 40px; /* Set a proper width */
+    height: 40px; /* Set a proper height */
+    justify-content: center; /* Center the icon horizontally */
     align-items: center; /* Center the icon vertically */
-    border: none; /* Optional: removes the border */
+    transition: background 0.3s; /* Smooth background transition */
 }
 
-/* Ensure the icon inside is visible */
 .nav-toggle i {
-    color: var(--latte-foam); /* Contrast color for visibility */
-    font-size: 24px;
+    color: var(--latte-foam); /* Adjust based on your color scheme */
+    font-size: 24px; /* Ensures visibility and legibility */
 }
 
 /* Optional: Add a hover effect */
@@ -462,24 +463,36 @@ button:hover {
 
 .hamburger {
     display: block;
-    width: 30px;
-    height: 4px;
+    width: 30px; /* Standard width for visibility */
+    height: 3px; /* Standard height for visibility */
     background: var(--latte-foam);
     position: relative;
 }
 
-.hamburger, .hamburger::before, .hamburger::after {
+.hamburger::before, .hamburger::after {
     content: '';
-    background: var(--latte-foam);
-    width: 30px;
-    height: 2px;
-    display: block;
     position: absolute;
-    transition: all 0.3s;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: var(--latte-foam);
+    transition: transform 0.3s ease;
 }
 
-.hamburger::before { top: -8px; }
-.hamburger::after { bottom: -8px; }
+.hamburger::before {
+    top: -10px;
+}
+
+.hamburger::after {
+    top: 10px;
+}
+
+.navbar-logo {
+    display: none; /* Hide by default */
+    width: 80px; /* Adjust size as needed */
+    height: auto; /* Maintain aspect ratio */
+    margin: 10px auto; /* Center horizontally and add some margin */
+}
 
 @media (max-width: 768px) {
     header {
@@ -490,30 +503,41 @@ button:hover {
 
     /* Positioned off-screen by default */
     .nav-toggle {
-        display: block; /* Force display */
-        position: absolute;
-        top: 10px;
-        left: 10px; /* Move it to the left to test */
-        z-index: 2000; /* High z-index */
-        background-color: var(--rich-coffee); /* Make it stand out */
-    }
-    
-    .nav-toggle .fas {
-        transition: transform 0.3s ease; /* Smooth transform transition */
-    }
-    
-    .nav-toggle.open .fas {
-        transform: rotate(45deg); /* Rotate to create 'X' shape */
-    }
-    
-    .nav-toggle {
         display: block;
-        position: absolute;
-        left: 1px;
-        top: 20px;
-        z-index: 1600; /* Keep as is or adjust based on other z-indexes */
+        position: absolute; /* Start as absolute within the header */
+        top: 15px;
+        left: 20px;
+        z-index: 2000;
+        background-color: transparent; /* Clear for general UI consistency */
+        padding: 10px;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        width: 40px;
+        height: 40px;
+        align-items: center;
+        justify-content: center;
     }
     
+    /* For when the menu is open */
+    .nav-toggle.fixed {
+        position: fixed; /* Change to fixed to remain visible on scroll */
+        background-color: var(--rich-coffee); /* Visible background when menu is active */
+    }
+    
+    .nav-toggle i {
+        color: var(--latte-foam);
+        font-size: 24px; /* Icon size */
+    }
+    
+    .nav-toggle:hover i {
+        color: var(--caramel-topping); /* Hover effect */
+    }
+    
+    .navbar-logo {
+        display: block; /* Show only in mobile view */
+    }
+
     nav {
         position: fixed;
         top: 0;
@@ -537,7 +561,7 @@ button:hover {
         display: flex;
         flex-direction: column;
         width: 100%;
-        padding: 55px 0; /* Add some padding at the top */
+        padding: 10px 0; /* Add some padding at the top */
     }
 
     nav ul li {
