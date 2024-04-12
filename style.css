@@ -435,25 +435,24 @@ button:hover {
 
 /* This is for the mobile navbar */
 .nav-toggle {
-    display: block;
-    top: 15px;
+    display: none; /* Hide the toggle button on desktop */
+    position: absolute;
+    top: 10px;
     left: 20px;
     z-index: 2000;
-    background-color: transparent; /* Make the button blend with any background */
-    cursor: pointer;
+    background-color: transparent;
+    padding: 5px;
+    width: 40px;
+    height: 40px;
     border: none;
-    outline: none;
-    padding: 10px;
-    width: 40px; /* Set a proper width */
-    height: 40px; /* Set a proper height */
-    justify-content: center; /* Center the icon horizontally */
-    align-items: center; /* Center the icon vertically */
-    transition: background 0.3s; /* Smooth background transition */
+    cursor: pointer;
+    justify-content: center;
+    align-items: center;
 }
 
 .nav-toggle i {
     color: var(--latte-foam); /* Adjust based on your color scheme */
-    font-size: 24px; /* Ensures visibility and legibility */
+    font-size: 28px; /* Ensures visibility and legibility */
 }
 
 /* Optional: Add a hover effect */
