@@ -435,20 +435,21 @@ button:hover {
 
 /* This is for the mobile navbar */
 .nav-toggle {
-    display: none; /* Initially hidden on desktop */
-    background: none; /* Removes any default button background */
-    border: none; /* Removes any default border */
-    cursor: pointer; /* Changes cursor to pointer to indicate clickability */
-    padding: 10px; /* Adds some padding for touch friendliness */
-    z-index: 2000; /* Ensures it's above other content */
-    position: absolute; /* Positions it relative to its nearest positioned ancestor */
-    top: 10px; /* Adjust as necessary */
-    right: 20px; /* Adjust as necessary */
+    display: block; /* Always displayed */
+    position: fixed; /* Fixed position to keep it in view */
+    top: 10px;
+    left: 10px; /* Ensure it's at the top left */
+    z-index: 2100; /* Increase z-index to ensure it's on top */
+    background-color: red; /* High visibility color */
+    padding: 10px;
+    border: none;
+    cursor: pointer;
 }
 
+/* Ensure the icon inside is visible */
 .nav-toggle i {
-    color: var(--latte-foam); /* Adjust based on your color scheme */
-    font-size: 24px; /* Adjust based on your preference */
+    color: white; /* Contrast color for visibility */
+    font-size: 24px;
 }
 
 /* Optional: Add a hover effect */
@@ -481,19 +482,17 @@ button:hover {
     header {
         flex-direction: column;
         align-items: center;
-        text-align: center;
-        position: relative; /* This ensures that the header's position is relative to its normal flow */
+        position: relative;
     }
 
     /* Positioned off-screen by default */
     .nav-toggle {
-        display: block;
+        display: block; /* Force display */
         position: absolute;
-        left: 20px; /* Moved from right to left */
-        top: 20px;
-        z-index: 1600; /* Ensure toggle is above the nav */
-        font-size: 24px; /* Ensure icon size is adequate */
-        cursor: pointer; /* Indicates it's clickable */
+        top: 10px;
+        left: 10px; /* Move it to the left to test */
+        z-index: 2000; /* High z-index */
+        background-color: red; /* Make it stand out */
     }
     
     .nav-toggle .fas {
@@ -504,36 +503,49 @@ button:hover {
         transform: rotate(45deg); /* Rotate to create 'X' shape */
     }
     
-    nav {
-        position: fixed;
-        top: 0;
-        left: -100%; /* Start off-screen */
-        width: 60%; /* Adjust width based on design preference */
-        height: 100%;
-        background-color: var(--rich-coffee);
-        flex-direction: column;
-        justify-content: flex-start;
-        transition: left 0.3s ease;
-        z-index: 1500;
-        display: block;
-    }
-    
-    nav.show {
-        left: 0; /* Slide in from the left */
-    }
-    
-
     .nav-toggle {
         display: block;
         position: absolute;
-        right: 20px;
+        left: 20px;
         top: 20px;
-        z-index: 1600; /* Ensure toggle is above the nav */
+        z-index: 1600; /* Keep as is or adjust based on other z-indexes */
+    }
+    
+    nav {
+        position: fixed;
+        top: 0;
+        left: -100%; /* Off-screen to the left */
+        width: 75%; /* Adjust based on preference */
+        height: 100%;
+        background-color: var(--rich-coffee);
+        display: flex; /* Ensures it's always flex */
+        flex-direction: column;
+        justify-content: flex-start;
+        transition: left 0.3s;
+        z-index: 1500; /* Below the toggle button */
     }
 
+    nav.show {
+        left: 0; /* Slide in from the left */
+    } 
+    
+    /* Ensure nav items are styled for mobile */
     nav ul {
-        width: 100%; /* Ensures the <ul> takes the full width of the <nav> */
+        display: flex;
         flex-direction: column;
+        width: 100%;
+        padding: 20px 0; /* Add some padding at the top */
+    }
+
+    nav ul li {
+        width: 100%; /* Full width for touch targets */
+        text-align: center;
+    }
+
+    nav ul li a {
+        display: block;
+        padding: 15px; /* Larger padding for easy touch */
+        font-size: 18px; /* Readable font size */
     }
 
     nav ul.show {
@@ -544,14 +556,6 @@ button:hover {
     nav ul li {
         width: 100%; /* Makes each list item fill the nav */
         text-align: center; /* Center-align the text */
-    }
-
-    nav ul li a {
-        display: block; /* Makes the link fill its list item for easier clicking */
-        width: 100%; /* Ensures the links are as wide as their list items */
-        padding: 15px; /* Increases padding for touch friendliness */
-        font-size: 18px; /* Keeps font size readable */
-        color: var(--latte-foam); /* Adjust as needed */
     }
 
     .logo {

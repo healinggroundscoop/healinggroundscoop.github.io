@@ -22,12 +22,12 @@ function showSlides(n) {
 }
 
 // Improved navbar toggle functionality
-document.addEventListener("DOMContentLoaded", function() {
+document.addEventListener('DOMContentLoaded', () => {
     const toggleButton = document.querySelector('.nav-toggle');
     const nav = document.querySelector('nav');
 
-    toggleButton.addEventListener('click', function() {
-        nav.classList.toggle('show'); // Toggle nav visibility
-        toggleButton.classList.toggle('open'); // Toggle button class to change icon
+    toggleButton.addEventListener('click', () => {
+        nav.classList.toggle('show');
+        toggleButton.classList.toggle('open'); // Change icon state
     });
 });
