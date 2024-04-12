@@ -34,7 +34,7 @@
         </button>
     
         <nav>
-            <img src="images/logo.png" alt="Small Logo" class="navbar-logo"> <!-- Small logo for mobile navbar -->
+            <a href="index.html"><img src="images/logo.png" alt="Small Logo" class="navbar-logo"></a> <!-- Small logo for mobile navbar -->
             <ul>
                 <li><a href="#about">About</a></li>
                 <li><a href="events.html">Events</a></li>
@@ -85,12 +85,12 @@
         <div class="contact-content">
             <div class="contact-form">
                 <p>Drop us a line!</p>
-                <form action="submit_form.php" method="POST">
+                <form action="https://formspree.io/f/{form_id}" method="POST">
                     <input type="text" name="name" placeholder="Name" required>
                     <input type="email" name="email" placeholder="Email" required>
                     <textarea name="message" placeholder="Message" required></textarea>
                     <button type="submit">Send</button>
-                </form>
+                </form>                
             </div>
             <div class="contact-info">
                 <!-- Business Hours -->

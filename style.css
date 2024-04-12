@@ -32,6 +32,10 @@ body, html {
     scroll-behavior: smooth;
 }
 
+textarea {
+    resize: none; /* Prevents resizing the textarea */
+}
+
 /* Headers using Amarante for more stylistic appeal */
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Amarante', serif; /* Specific font for headers */
