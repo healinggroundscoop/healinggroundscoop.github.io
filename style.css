@@ -804,12 +804,15 @@ button:hover {
     }
 
     .container {
-        flex-direction: column;
-        text-align: center; /* Ensures text is centered in mobile view */
+        flex-direction: column; /* Stack vertically on smaller screens */
     }
 
     .punch-card-content, .punch-card-image {
-        padding: 10px;
-        text-align: center; /* Center text within each block on smaller screens */
+        padding: 10px; /* Ensures padding is consistent for all sides */
+    }
+
+    .punch-card-image img {
+        max-width: 90%; /* Reduces the max width of the image to prevent it from being too wide */
+        margin: 0 auto; /* Centers the image horizontally */
     }
 }
