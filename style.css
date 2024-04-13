@@ -21,33 +21,29 @@
     --dark-highlight: #bb86fc; /* A highlight color for dark mode */
 }
 
-/* Setting a base font family for better readability */
 body, html {
     height: 100%;
     margin: 0;
     padding: 0;
-    font-family: 'Lato', sans-serif; /* Default readable font */
+    font-family: 'Lato', sans-serif; /* Default font */
     background-color: var(--creamy-white);
     color: var(--deep-espresso);
     scroll-behavior: smooth;
 }
 
 textarea {
-    resize: none; /* Prevents resizing the textarea */
+    resize: none;
 }
 
-/* Headers using Amarante for more stylistic appeal */
 h1, h2, h3, h4 {
-    font-family: 'Amarante', serif; /* Specific font for headers */
-    text-align: center; /* Center headers by default */
+    font-family: 'Amarante', serif;
+    text-align: center;
 }
 
-/* Specific sections that might benefit from Amarante to keep the unique style where it counts */
 .title, .header {
     font-family: 'Amarante', serif;
 }
 
-/* Additional elements where Amarante might be used */
 .navbar-logo, .footer-logo {
     font-family: 'Amarante', serif;
 }
@@ -156,6 +152,11 @@ nav ul li a:hover {
     align-items: flex-start;
 }
 
+
+
+/*
+    Hero Section Below
+*/
 .hero {
     position: relative;
     height: 65vh; /* Hero section height */
@@ -203,6 +204,11 @@ nav ul li a:hover {
     margin: 20px 0; /* Adjust margins as needed */
 }
 
+
+
+/*
+    Footer Section
+*/
 footer {
     background-color: var(--rich-coffee);
     color: var(--latte-foam);
@@ -323,7 +329,11 @@ footer a:hover {
     margin-bottom: 30px; /* Adds space below the paragraph */
 }
 
-/* FAQ Section Styling */
+
+
+/* 
+    FAQ Section Styling 
+*/
 #faq {
     max-width: 800px;
     margin: 110px auto;
@@ -380,6 +390,9 @@ footer a:hover {
 
 
 
+/*
+    Image Carousel
+*/
 .carousel-container {
     position: relative;
     max-width: 600px; /* Adjust based on your needs */
@@ -416,6 +429,11 @@ footer a:hover {
     background-color: #717171;
 }
 
+
+
+/*
+    Contact Form
+*/
 .contact-us {
     text-align: center;
     margin: 40px auto;
@@ -486,40 +504,10 @@ button:hover {
 }
 
 
-#menu {
-    text-align: center;
-    padding: 50px 20px;
-    background-color: var(--creamy-white);
-    color: var(--deep-espresso);
-}
 
-#menu h2 {
-    font-family: 'Lato', sans-serif;
-    font-weight: 700;
-    color: var(--rich-coffee);
-}
-
-#menu p {
-    font-family: 'Lato', sans-serif;
-    margin: 20px 0;
-}
-
-#menu a {
-    display: inline-block;
-    background-color: var(--caramel-topping);
-    color: var(--creamy-white);
-    padding: 10px 15px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: 700;
-    transition: background-color 0.3s ease;
-}
-
-#menu a:hover {
-    background-color: var(--rich-coffee);
-}
-
-/* This is for the mobile navbar */
+/* 
+    Mobile Navbar Implementation
+*/
 .nav-toggle {
     display: none; /* Hide the toggle button on desktop */
     position: absolute;
@@ -541,7 +529,6 @@ button:hover {
     font-size: 28px; /* Ensures visibility and legibility */
 }
 
-/* Optional: Add a hover effect */
 .nav-toggle:hover i {
     color: var(--caramel-topping); /* A slightly different color on hover */
 }
@@ -595,6 +582,11 @@ button:hover {
 }
 
 
+
+
+/*
+Punch Card Graphics
+*/
 .punch-card-section {
     display: flex;
     align-items: center;
@@ -634,7 +626,77 @@ button:hover {
 }
 
 
+
+/* 
+Menu Page Stuff Below
+*/
+.menu-container {
+    display: flex;
+    justify-content: space-around;
+    padding: 20px;
+    gap: 20px;
+}
+
+.menu-section {
+    flex: 1;
+    padding: 20px;
+    border: 1px solid #ccc; /* Visual separation of the sections */
+    box-shadow: 0 2px 5px rgba(0,0,0,0.1); /* Optional shadow for depth */
+}
+
+.menu-section h2 {
+    color: var(--deep-espresso);
+    text-align: center; /* Center align the titles */
+}
+
+.menu-section p, .menu-section ul {
+    text-align: left; /* Ensure text alignment is consistent */
+}
+
+#menu {
+    text-align: center;
+    padding: 50px 20px;
+    background-color: var(--creamy-white);
+    color: var(--deep-espresso);
+}
+
+#menu h2 {
+    font-family: 'Lato', sans-serif;
+    font-weight: 700;
+    color: var(--rich-coffee);
+}
+
+#menu p {
+    font-family: 'Lato', sans-serif;
+    margin: 20px 0;
+}
+
+#menu a {
+    display: inline-block;
+    background-color: var(--caramel-topping);
+    color: var(--creamy-white);
+    padding: 10px 15px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+#menu a:hover {
+    background-color: var(--rich-coffee);
+}
+
+
+/* 
+Handles differences in mobile device view 
+Stuff below affects screens 768px or smaller
+*/
 @media (max-width: 768px) {
+    .menu-container {
+        flex-direction: column;
+        align-items: center; /* Stack the menus vertically on smaller screens */
+    }
+
     header {
         flex-direction: column;
         align-items: center;
