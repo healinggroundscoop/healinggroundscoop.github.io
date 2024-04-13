@@ -271,8 +271,8 @@ footer a:hover {
     width: 80%; /* Increase width for larger display */
     max-width: 1200px; /* Increased max width */
     height: 800px; /* Increased height */
-    border: 3px solid var(--caramel-topping);
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border: 12px solid var(--caramel-topping);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
     margin: auto; /* Centering horizontally */
     display: block;
     position: relative; /* Ensures positioning context */
@@ -709,6 +709,33 @@ Menu Page Stuff Below
 }
 
 
+
+/*
+    Events Page Stuff
+*/
+body.events-page {
+    background-image: url('images/events.jpg'); /* Path to your background image */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.9; /* Adjust the opacity to make the page content more readable */
+}
+
+/* Add an overlay for better text visibility */
+body.events-page::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for text contrast */
+    z-index: -1;
+}
+
+
+
 /* 
 Handles differences in mobile device view 
 Stuff below affects screens 768px or smaller
@@ -893,5 +920,10 @@ Stuff below affects screens 768px or smaller
     .punch-card-image img {
         max-width: 90%; /* Reduces the max width of the image to prevent it from being too wide */
         margin: 0 auto; /* Centers the image horizontally */
+    }
+
+    body.events-page {
+        background-size: cover;
+        background-position: center;
     }
 }
