@@ -54,7 +54,12 @@ h1, h2, h3, h4 {
 }
 
 .content-wrap {
-    flex: 1; /* Allows this element to grow and fill available space */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Center children vertically */
+    height: 100vh; /* Full viewport height */
+    margin: 0; /* Remove default margins */
+    padding: 0; /* Remove default paddings */
 }
 
 body::-webkit-scrollbar {
@@ -263,13 +268,14 @@ footer a:hover {
     Various Embeds
 */
 .google-calendar-embed {
-    width: 100%; /* Makes the calendar responsive */
-    max-width: 1000px; /* Maximum width of the calendar */
-    height: 900px; /* Fixed height, but you can adjust as needed */
-    border: 3px solid var(--caramel-topping); /* Example border style */
-    box-shadow: 0 4px 8px rgba(0,0,0,0.1); /* Optional: adds a subtle shadow for depth */
-    margin: 20px auto; /* Centers the calendar in its parent container */
-    display: block; /* Ensures the iframe is block-level for margin to work */
+    width: 80%; /* Increase width for larger display */
+    max-width: 1200px; /* Increased max width */
+    height: 800px; /* Increased height */
+    border: 3px solid var(--caramel-topping);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    margin: auto; /* Centering horizontally */
+    display: block;
+    position: relative; /* Ensures positioning context */
 }
 
 .instagram-embed {
@@ -284,15 +290,6 @@ footer a:hover {
 #google-maps, .instagram-embed {
     width: 100%; /* Each child takes full width of the container */
     padding: 0;
-}
-
-#google-maps iframe, .instagram-embed iframe {
-    width: 100%; /* Ensures iframe takes full width of its container */
-    border: none; /* Removes border around iframe */
-}
-
-#google-maps iframe {
-    height: 450px; /* Increase height from 300px to 450px */
 }
 
 
@@ -865,12 +862,9 @@ Stuff below affects screens 768px or smaller
     }
 
     .google-calendar-embed {
-        width: 100%; /* Adjust width as necessary */
-        height: 600px; /* Adjust height as necessary */
-        border: 5px solid var(--caramel-topping); /* Thick border with a specific color from your palette */
-        margin-top: 50px; /* Add top margin to push it down */
-        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: adds a subtle shadow for depth */
-    }    
+        height: 450px; /* Reduced height for mobile devices */
+        max-width: 100%; /* Full width on smaller screens */
+    }
 
     #google-maps iframe {
         height: 300px; /* Smaller height for smaller screens */
