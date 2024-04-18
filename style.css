@@ -708,19 +708,13 @@ Menu Page Stuff Below
 
 
 
-/*
-    Events Page Stuff
-*/
+/* Events Page Background Styling */
 body.events-page {
-    background-image: url('images/events.jpg'); /* Path to your background image */
-    background-size: cover;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    opacity: 0.9; /* Adjust the opacity to make the page content more readable */
+    position: relative; /* Context for absolute positioning */
+    height: 100%; /* Ensure it covers full viewport height */
+    width: 100%; /* Cover full width */
 }
 
-/* Add an overlay for better text visibility */
 body.events-page::before {
     content: '';
     position: absolute;
@@ -728,8 +722,22 @@ body.events-page::before {
     left: 0;
     right: 0;
     bottom: 0;
-    background: rgba(0, 0, 0, 0.5); /* Dark overlay for text contrast */
-    z-index: -1;
+    background: url('images/events.jpg');
+    background-size: cover; /* Cover the full area */
+    opacity: 0.8; /* Adjust for desired transparency */
+    z-index: -1; /* Behind all other content */
+}
+
+/* Ensuring the overlay does not affect text visibility */
+body.events-page::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast */
+    z-index: -1; /* Same layer as the image, but on top of it */
 }
 
 
