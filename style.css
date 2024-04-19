@@ -43,17 +43,20 @@ h1, h2, h3, h4, .title, .header, .navbar-logo, .footer-logo, .cafe-name {
 .page-container {
     display: flex;
     flex-direction: column;
-    min-height: 85vh;
+    min-height: 100vh;
     justify-content: center;
     align-items: center;
     text-align: center;
+    width: 100%;
 }
 
 .content-wrap {
     display: flex;
     flex-direction: column;
     justify-content: center; /* Center children vertically */
-    height: 100vh; /* Full viewport height */
+    align-items: center; /* Center children horizontally */
+    width: 100%; /* Ensure it takes full width of its parent */
+    height: 100vh;
 }
 
 .main, .content-wrap {
@@ -107,6 +110,36 @@ header {
     position: relative;
     top: 0;
     height: 70px; /* Set a fixed height for the navbar */
+}
+
+
+
+/*
+    Footer
+*/
+footer {
+    background-color: var(--rich-coffee);
+    color: var(--latte-foam);
+    text-align: center;
+    padding: 10px;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer a {
+    color: var(--latte-foam); /* Icon color */
+    margin: 0 10px;
+    font-size: 24px; /* Icon size */
+}
+
+footer a:hover {
+    color: var(--caramel-topping);
+}
+
+.cafe-name, footer {
+    font-family: 'Lato', sans-serif;
 }
 
 
@@ -232,47 +265,23 @@ nav ul li a:hover {
 
 
 /*
-    Footer Section
-*/
-footer {
-    background-color: var(--rich-coffee);
-    color: var(--latte-foam);
-    text-align: center;
-    padding: 10px;
-    position: relative;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-}
-
-footer a {
-    color: var(--latte-foam); /* Icon color */
-    margin: 0 10px;
-    font-size: 24px; /* Icon size */
-}
-
-footer a:hover {
-    color: var(--caramel-topping);
-}
-
-.cafe-name, footer {
-    font-family: 'Lato', sans-serif;
-}
-
-
-
-/*
     Various Embeds
 */
 .google-calendar-embed {
-    width: 80%; /* Increase width for larger display */
-    max-width: 1200px; /* Increased max width */
-    height: 800px; /* Increased height */
+    width: 100%; /* Full width to fill its container */
+    max-width: 1200px; /* Limit maximum width */
+    height: 800px; /* Suitable height */
     border: 12px solid var(--caramel-topping);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
-    margin: auto; /* Centering horizontally */
+    margin: 20px auto; /* Centering horizontally */
     display: block;
-    position: relative; /* Ensures positioning context */
+}
+
+/* Ensure iframe takes the necessary width and height dynamically */
+.google-calendar-embed iframe {
+    width: 100%; /* Ensures iframe is responsive within its container */
+    height: 100%; /* Adapts height to the adjusted container size */
+    min-height: 600px; /* Minimum height to ensure visibility */
 }
 
 .instagram-embed {
