@@ -418,78 +418,75 @@ footer a:hover {
 /*
     Image Carousel
 */
+/* Image Carousel Container */
 .carousel-container {
     position: relative;
-    max-width: 800px; /* Adjusted for a good balance on most screens */
-    width: 90%; /* Responsive and maintains good margins */
-    margin: auto;
-    overflow: hidden;
+    max-width: 800px; /* Good balance on most screens */
+    width: 90%; /* Keeps the carousel responsive with some margin */
+    margin: 20px auto; /* Centers the carousel and adds vertical spacing */
+    overflow: hidden; /* Hides anything sticking out of bounds */
 }
 
-.carousel-controls button {
+/* Slide container containing all images */
+.carousel-slide {
     display: flex;
-    justify-content: center;
-    align-items: center;
+    transition: transform 0.5s ease-in-out; /* Smooth transitions for slide movement */
+}
+
+/* Styling for each image inside the carousel */
+.carousel-slide img {
+    width: 100%; /* Each image takes full width of the container */
+    flex-shrink: 0; /* Prevents images from shrinking */
+}
+
+/* Carousel navigation buttons styling */
+.carousel-controls button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    background-color: rgba(0, 0, 0, 0.6); /* Dark background for better visibility */
     color: white;
     border: none;
     cursor: pointer;
-    padding: 10px 20px; /* Adjusted padding for a more suitable button size */
-    font-size: 18px; /* Larger font for better visibility */
-    z-index: 2;
-    border-radius: 50%; /* Circular button */
-    width: 40px; /* Fixed width for buttons */
-    height: 40px; /* Fixed height for buttons */
+    padding: 10px;
+    border-radius: 50%; /* Circular buttons */
+    width: 40px; /* Appropriate width */
+    height: 40px; /* Matching height for square aspect */
+    font-size: 24px; /* Icon size */
+    z-index: 10;
 }
 
+/* Positioning for left arrow */
 .carousel-controls .prev {
-    left: 0; /* Position adjusted to the very left inside the container */
+    left: 10px; /* Slightly inside from the left edge */
 }
 
+/* Positioning for right arrow */
 .carousel-controls .next {
-    right: 0; /* Position adjusted to the very right inside the container */
+    right: 10px; /* Slightly inside from the right edge */
 }
 
-.carousel-container {
-    position: relative;
-    max-width: 600px;
-    margin: auto;
-    overflow: hidden;
-}
-
-.carousel-slide {
-    display: flex;
-    width: 500%;
-    transition: transform 0.5s ease-in-out;
-}
-
-.carousel-slide img {
-    width: 20%;
-    flex-shrink: 0;
-}
-
+/* Dots for indicating slide position */
 .carousel-dots {
     text-align: center;
-    padding: 20px;
+    padding: 10px;
 }
 
 .dot {
     cursor: pointer;
     height: 15px;
     width: 15px;
-    margin: 0 2px;
+    margin: 0 5px;
     background-color: #bbb;
     border-radius: 50%;
     display: inline-block;
-    transition: background-color 0.6s ease;
+    transition: background-color 0.3s ease;
 }
 
 .dot.active, .dot:hover {
-    background-color: #717171;
+    background-color: #717171; /* Darker for active or hover state */
 }
+
 
 
 

@@ -1,14 +1,12 @@
 // Image Carousel
-let slideIndex = 0;
+let slideIndex = 1; // Start from the first slide
 let slides = document.getElementsByClassName("carousel-slide")[0].getElementsByTagName("img");
 let dots = document.getElementsByClassName("dot");
 let slideInterval;
 
 function initCarousel() {
-  showSlides(slideIndex); // Initialize the carousel
-  slideInterval = setInterval(() => {
-    plusSlides(1);
-  }, 6000); // Change image every 6 seconds
+    showSlides(slideIndex);
+    slideInterval = setInterval(() => plusSlides(1), 6000); // Change image every 6 seconds
 }
 
 function plusSlides(n) {
@@ -16,56 +14,50 @@ function plusSlides(n) {
 }
 
 function currentSlide(n) {
-    showSlides(slideIndex = n - 1);
+    showSlides(slideIndex = n);
 }
 
-function showSlides() {
+function showSlides(n) {
     let i;
-    let slides = document.getElementsByClassName("carousel-slide")[0].getElementsByTagName("img");
-    let dots = document.getElementsByClassName("dot");
-  
+    if (n > slides.length) { slideIndex = 1 } // Wrap forward
+    if (n < 1) { slideIndex = slides.length } // Wrap backward
+
     for (i = 0; i < slides.length; i++) {
         slides[i].style.display = "none";  // Hide all slides
     }
-    slideIndex++;
-    if (slideIndex > slides.length) {
-        slideIndex = 1; // Reset to the first slide
-    }
-  
     for (i = 0; i < dots.length; i++) {
         dots[i].className = dots[i].className.replace(" active", "");
     }
-  
-    slides[slideIndex-1].style.display = "block"; // Show the current slide
-    dots[slideIndex-1].className += " active";
-    setTimeout(showSlides, 5000); // Change image every 5 seconds
+
+    slides[slideIndex - 1].style.display = "block"; // Show the current slide
+    dots[slideIndex - 1].className += " active";
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    showSlides(slideIndex); // Start with the first slide
-});
+// Initialize carousel when the page is fully loaded
+document.addEventListener('DOMContentLoaded', initCarousel);
 
 // Touch events for swipe functionality
 let touchStartPos = 0;
 let touchEndPos = 0;
 
 document.querySelector('.carousel-slide').addEventListener('touchstart', e => {
-  touchStartPos = e.touches[0].clientX;
+    touchStartPos = e.touches[0].clientX;
 });
 
 document.querySelector('.carousel-slide').addEventListener('touchmove', e => {
-  touchEndPos = e.touches[0].clientX;
+    touchEndPos = e.touches[0].clientX;
 });
 
 document.querySelector('.carousel-slide').addEventListener('touchend', () => {
-  if (touchStartPos - touchEndPos > 50) {
-    // swipe left
-    plusSlides(1);
-  } else if (touchStartPos - touchEndPos < -50) {
-    // swipe right
-    plusSlides(-1);
-  }
+    if (touchStartPos - touchEndPos > 50) {
+        // Swipe left
+        plusSlides(1);
+    } else if (touchStartPos - touchEndPos < -50) {
+        // Swipe right
+        plusSlides(-1);
+    }
 });
+
 
 
 
