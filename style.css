@@ -285,10 +285,12 @@ footer a:hover {
     padding: 10px; /* Padding for aesthetics */
 }
 
-#google-maps, .instagram-embed {
-    width: 100%; /* Each child takes full width of the container */
-    padding: 0;
+#google-maps iframe {
+    width: 100%; /* Ensures iframe takes full width of its container */
+    height: 450px; /* Or any other height you prefer */
+    border: none; /* Removes border around iframe */
 }
+
 
 
 
@@ -418,18 +420,55 @@ footer a:hover {
 */
 .carousel-container {
     position: relative;
-    max-width: 600px; /* Adjust based on your needs */
+    max-width: 800px; /* Adjusted for a good balance on most screens */
+    width: 90%; /* Responsive and maintains good margins */
     margin: auto;
+    overflow: hidden;
+}
+
+.carousel-controls button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    color: white;
+    border: none;
+    cursor: pointer;
+    padding: 10px 20px; /* Adjusted padding for a more suitable button size */
+    font-size: 18px; /* Larger font for better visibility */
+    z-index: 2;
+    border-radius: 50%; /* Circular button */
+    width: 40px; /* Fixed width for buttons */
+    height: 40px; /* Fixed height for buttons */
+}
+
+.carousel-controls .prev {
+    left: 0; /* Position adjusted to the very left inside the container */
+}
+
+.carousel-controls .next {
+    right: 0; /* Position adjusted to the very right inside the container */
+}
+
+.carousel-container {
+    position: relative;
+    max-width: 600px;
+    margin: auto;
+    overflow: hidden;
 }
 
 .carousel-slide {
     display: flex;
-    overflow: hidden;
+    width: 500%;
+    transition: transform 0.5s ease-in-out;
 }
 
 .carousel-slide img {
-    max-width: 100%;
-    display: none; /* Hide images initially */
+    width: 20%;
+    flex-shrink: 0;
 }
 
 .carousel-dots {
@@ -451,6 +490,7 @@ footer a:hover {
 .dot.active, .dot:hover {
     background-color: #717171;
 }
+
 
 
 
@@ -721,7 +761,7 @@ body.events-page::before {
     top: 0;
     left: 0;
     right: 0;
-    bottom: 0;
+    bottom: 0; 
     background: url('images/events.jpg');
     background-size: cover; /* Cover the full area */
     opacity: 0.8; /* Adjust for desired transparency */
