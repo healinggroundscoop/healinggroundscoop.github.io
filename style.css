@@ -446,24 +446,31 @@ footer a:hover {
 
 /* Navigation buttons styling */
 .carousel-controls button {
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent for visibility */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
     color: white;
     border: none;
     cursor: pointer;
     padding: 10px;
     border-radius: 50%; /* Circular buttons */
-    width: 40px;
-    height: 40px;
+    width: 40px; /* Appropriate width */
+    height: 40px; /* Matching height for square aspect */
     font-size: 24px; /* Icon size */
     z-index: 10;
 }
 
-/* Adjusting button positions */
-.carousel-controls .prev { left: 10px; }
-.carousel-controls .next { right: 10px; }
+.carousel-controls .prev {
+    left: 10px; /* Adjust as necessary to position inside the container */
+}
+
+.carousel-controls .next {
+    right: 10px; /* Adjust as necessary to position inside the container */
+}
 
 /* Dots navigation */
 .carousel-dots {
