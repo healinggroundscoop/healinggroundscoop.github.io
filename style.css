@@ -418,58 +418,59 @@ footer a:hover {
 /*
     Image Carousel
 */
-/* Image Carousel Container */
-.carousel-container {
+/* Wrapper for the carousel to add border and control size */
+.carousel-wrapper {
     position: relative;
-    max-width: 800px; /* Good balance on most screens */
-    width: 90%; /* Keeps the carousel responsive with some margin */
-    margin: 20px auto; /* Centers the carousel and adds vertical spacing */
-    overflow: hidden; /* Hides anything sticking out of bounds */
+    max-width: 800px; /* Maximum width of the carousel */
+    width: 90%; /* Responsive width */
+    margin: 20px auto; /* Centering the carousel */
+    border: 5px solid var(--caramel-topping); /* Nice border */
+    overflow: hidden; /* Hides anything sticking out */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Optional: adds shadow for depth */
 }
 
-/* Slide container containing all images */
-.carousel-slide {
+/* Container specifically for sliding images */
+.carousel-container {
     display: flex;
     transition: transform 0.5s ease-in-out; /* Smooth transitions for slide movement */
+    height: 600px; /* Fixed height for images */
+    align-items: center; /* Centers images vertically */
 }
 
-/* Styling for each image inside the carousel */
+/* Styling for each image */
 .carousel-slide img {
-    width: 100%; /* Each image takes full width of the container */
+    width: 100%; /* Each image takes full width of its container */
     flex-shrink: 0; /* Prevents images from shrinking */
+    object-fit: cover; /* Ensures images cover the area properly */
 }
 
-/* Carousel navigation buttons styling */
+/* Navigation buttons styling */
 .carousel-controls button {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.6); /* Dark background for better visibility */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent for visibility */
     color: white;
     border: none;
     cursor: pointer;
     padding: 10px;
     border-radius: 50%; /* Circular buttons */
-    width: 40px; /* Appropriate width */
-    height: 40px; /* Matching height for square aspect */
+    width: 40px;
+    height: 40px;
     font-size: 24px; /* Icon size */
     z-index: 10;
 }
 
-/* Positioning for left arrow */
-.carousel-controls .prev {
-    left: 10px; /* Slightly inside from the left edge */
-}
+/* Adjusting button positions */
+.carousel-controls .prev { left: 10px; }
+.carousel-controls .next { right: 10px; }
 
-/* Positioning for right arrow */
-.carousel-controls .next {
-    right: 10px; /* Slightly inside from the right edge */
-}
-
-/* Dots for indicating slide position */
+/* Dots navigation */
 .carousel-dots {
     text-align: center;
-    padding: 10px;
+    position: absolute;
+    bottom: 10px; /* Positioned at the bottom within the carousel */
+    width: 100%;
 }
 
 .dot {
@@ -484,9 +485,8 @@ footer a:hover {
 }
 
 .dot.active, .dot:hover {
-    background-color: #717171; /* Darker for active or hover state */
+    background-color: #717171; /* Highlight active or hovered dot */
 }
-
 
 
 
