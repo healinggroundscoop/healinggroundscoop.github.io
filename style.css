@@ -234,7 +234,7 @@ nav ul li a:hover {
     top: 50%;
     transform: translate(-50%, -50%); /* Centers content */
     background-color: rgba(50, 35, 27, 0.6); /* Semi-transparent black for readability */
-    color: #fff; /* Ensures text color is white for contrast */
+    color: var(--creamy-white); /* Ensures text color is white for contrast */
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Optional shadow for depth */
     max-width: 80%;
@@ -748,6 +748,7 @@ body.events-page::after {
     background: rgba(0, 0, 0, 0.5); /* Dark overlay for better contrast */
     z-index: -1; /* Same layer as the image, but on top of it */
 }
+
 
 
 /*
